@@ -1,5 +1,6 @@
 #Pasos para instalar
 
+
 py -m venv venv
 venv\Scripts\activate
 pip install django channels django-allauth django-crispy-forms django-taggit pillow
