@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}Posts{% endblock title %}
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+
+<h1 class="text-center m-5">Bienvenido {{ user.username }}</h1>
+
+{% endif %}
+
+
+<style>
+    .card-body {
+        border: 1px solid rgb(121, 121, 121);
+        border-radius:5px;
+    }
+    .author-panel{
+        background: #f2f2f2;
+        padding: 30px;
+        border-radius: 10px;
+    }
+</style>
+
+
+<div class="row">
+    {% if user.is_authenticated %}
+            <div class="col-md-3 author-panel gx-5">
+                <img class="avatar rounded card-img-top" src="{{user.avatar.url}}" alt="avatar">
+
+
+                <h3>{{user.username}}</h3>
+                <div> 
+
+                    <p><i class="fas fa-user"></i> Sobre Mí: {{user.bio}}</p>
+                    {% if user.discord %}
+                    <p><i class="fab fa-discord"></i> Discord: {{user.discord}}</p>
+                    {% endif %}
+                    <a href="{% url 'createroom' %}" class="btn btn-success btn-lg btn-block create-post"><i class="fas fa-plus-square"></i> Crear Post</a>
+                </div>
+
+            </div>
+       {% endif %}
+    
+                
+     <div class="gx-5 {% if user.is_authenticated %}col-md-9{% else %}col-md-12{% endif %}"  >
+                        
+        {% if rooms %}
+        <div class="row g-2 g-5">
+            {% for room in rooms %}
+            <div class="col-md-3">
+                <div class="card-body">
+                <h5 class="card-title text-center">{{room.name}}</h5>
+                <img src="{{ room.image.url }}" class="card-img-top">
+
+                <div class="preview">
+
+                    {{room.description|truncatechars:60|truncatewords:20}}
+                </div>
+                <a href="{% url 'room' room_id=room.id %}" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="subforum-title mt-3">
+
+            <div class="alert alert-secondary" role="alert">
+                Aun no hay posts publicados
+            </div>
+
+        </div>
+        {% endif %}
+        </div>
+</div>
+    
+
+
+      
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock content %}

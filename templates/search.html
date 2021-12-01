@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <!--Navigation-->
+        <div class="navigate">
+            <h1>Resultados de busqueda de: {{query}}</h1>
+
+            <div class="alert alert-secondary" role="alert">
+                {{results|length}} Resultados encontrados
+            </div>
+
+        </div>            
+        <div>
+
+              <ol class="list-group list-group-numbered">
+
+            {% for room in results %}
+
+
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+
+                    <div class="fw-bold"><a class="fw-bold" href="{% url 'room' room_id=room.id %}">{{room.name}}</a></div>
+                    
+                </div>
+            </li>
+
+            {% endfor %}
+        </ol>
+            
+            
+        </div>
+    </div>
+
+    {% endblock content %}

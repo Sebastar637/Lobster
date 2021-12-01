@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Posts{% endblock title %}
+
+
+{% block content %}
+
+<style>
+    .card-body {
+        border: 1px solid rgb(121, 121, 121);
+        border-radius:5px;
+    }
+    .author-panel{
+        background: #f2f2f2;
+        padding: 30px;
+        border-radius: 10px;
+    }
+</style>
+
+<br>
+<div class="row  justify-content-md-center">
+
+    <div class="col-md-4 author-panel gx-5">
+            <img class="avatar rounded card-img-top" src="{{profile.avatar.url}}" alt="avatar">
+
+
+            <h3>{{profile.username}}</h3>
+            <div> 
+
+                <p><i class="fas fa-user"></i> Sobre Mí: {{profile.bio}}</p>
+                {% if profile.discord %}
+                <p><i class="fab fa-discord"></i> Discord: {{profile.discord}}</p>
+                {% endif %}
+            </div>
+
+        </div>
+    
+</div>
+    
+
+
+      
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock content %}

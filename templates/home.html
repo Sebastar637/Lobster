@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Lobster</h1>
+
+        <p class="lead">
+            Lobster es una página en donde puedes ver distintos tipos de anuncios relacionados a videojuegos, por lo cual si te interesa alguno podrás establecer comunicación directa mediante un chat con la persona que creo ese anuncio solamente con un click.
+        </p>
+
+
+
+        {% if user.is_authenticated %}
+
+        <a class="btn btn-danger btn-lg" href="{% url 'account_logout' %}">Salir</a>
+        <a class="btn btn-warning btn-lg" href="{% url 'index' %}">Ver posts</a>
+
+        {% else %}
+        <a class="btn btn-success" href="{% url 'account_login' %}">Ingresar</a>
+        <a class="btn btn-primary" href="{% url 'account_signup' %}">Registrarse</a>
+
+        {% endif %}
+
+
+        
+    </div>
+</div>
+{% endblock content %}
