@@ -31,3 +31,10 @@ html{
     background-size: cover;
     background-position: center;
 }
+
+.form-background{
+    margin-top: 80px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+}
