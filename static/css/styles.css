@@ -31,3 +31,33 @@ html{
     background-size: cover;
     background-position: center;
 }
+.title-user{ 
+    margin-top: 15px;
+    font-family: 'Black Ops One', cursive;
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 3px 3px rgba(31, 31, 31, 0.171);
+}
+.publication-title{
+    display: inline-block;
+    margin: 5 5.5rem;
+
+    animation: slideInUp; 
+    animation-duration: 2s;
+}
+.perfil-user{
+    display: inline-block;
+    margin: 5 5.5rem;
+
+    animation: slideInUp; 
+    animation-duration: 2s;
+}
+.animation-title{
+    text-align: center;
+    margin-top: 15px;
+
+    animation: zoomIn; 
+    animation-duration: 2s;
+}

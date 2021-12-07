@@ -9,14 +9,14 @@
 {% if user.is_authenticated %}
 
 
-<h1 class="text-center m-5"><p style="font-family: 'Black Ops One', cursive;">Bienvenido {{ user.username }}</h1></p>
+<h1 class="text-center m-5 title-user animation-title">Bienvenido {{ user.username }}</h1>
 
 {% endif %}
 
 
 <style>
     .card-body {
-        border: 2px solid rgb(0, 34, 24);
+        border: 2px solid rgb(0, 0, 0);
         border-radius:5px;
     }
     .author-panel{
@@ -29,7 +29,7 @@
 
 <div class="row">
     {% if user.is_authenticated %}
-            <div class="col-md-3 author-panel gx-5">
+            <div class="col-md-3 author-panel gx-5 perfil-user">
                 <img class="avatar rounded card-img-top" src="{{user.avatar.url}}" alt="avatar">
 
 
@@ -53,7 +53,7 @@
         <div class="row g-2 g-5">
             {% for room in rooms %}
             <div class="col-md-3">
-                <div class="card-body">
+                <div class="card-body publication-title">
                 <h5 class="card-title text-center"><p style="font-family: 'Merriweather', serif;">{{room.name}}</h5>
                 <img src="{{ room.image.url }}" class="card-img-top">
 
