@@ -19,7 +19,10 @@ html{
     -webkit-background-clip: text;
     text-shadow: 3px 3px rgba(31, 31, 31, 0.171);
 }
-
+.button-to-center{
+    text-align: center;
+    margin-top: 30px;
+}
 .background-img{
     background: url("../img/background-1.jpg");
     width: 100%;
