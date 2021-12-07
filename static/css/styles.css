@@ -61,3 +61,10 @@ html{
     animation: zoomIn; 
     animation-duration: 2s;
 }
+.form-background{
+    margin-top: 80px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+}
+
