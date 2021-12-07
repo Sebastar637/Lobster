@@ -67,6 +67,12 @@ html{
     background-color: white;
     border-radius: 20px;
 }
+.type-letter{
+    font-family: 'Zen Antique Soft', serif;
+}
+
+
+
 
 .post-margin{
     margin-top: 20px;
