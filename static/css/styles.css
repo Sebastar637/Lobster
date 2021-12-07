@@ -14,8 +14,7 @@ html{
     font-family: 'Zen Antique Soft', serif;
 }
 .background-img{
-    background-image: linear-gradient(rgba(61, 152, 255, 0.685), rgba(45, 88, 197, 0.781), rgb(30, 69, 128));
-    height: 100vh;
+    background: url("../img/background-1.jpg");
     width: 100%;
     position: absolute;
     background-repeat: no-repeat;
