@@ -11,8 +11,15 @@ html{
     margin-right: 10px;
 }
 .title{
-    font-family: 'Zen Antique Soft', serif;
+    margin-top: 15px;
+    font-family: 'Black Ops One', cursive;
+    background: linear-gradient(rgba(99, 124, 248, 0.801),rgba(40, 84, 150, 0.76),rgba(30, 15, 167, 0.719));
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 3px 3px rgba(31, 31, 31, 0.171);
 }
+
 .background-img{
     background: url("../img/background-1.jpg");
     width: 100%;
