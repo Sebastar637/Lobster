@@ -30,14 +30,11 @@
                 <p style="font-family: 'Merriweather', serif;"><i class="fas fa-user"></i> Sobre Mí: {{profile.bio}}</p>
                 {% if profile.discord %}
                 <p style="font-family: 'Merriweather', serif;"><i class="fab fa-discord"></i> Discord: {{profile.discord}}</p>
-<<<<<<< HEAD
                 {% endif %}
                 {% if room %}
                 <span class="connected"></span> Usuario conectado a sala <a href="{% url 'room' room_id=room.id %}"><b>{{ room.name }}.</b></a>
                 {% else %}
                 <span class="disconnected"></span> Usuario esta desconectado.</b>
-=======
->>>>>>> 89bbc3be788c537ed3e547884cdc59264dcc8007
                 {% endif %}
             </div>
 
