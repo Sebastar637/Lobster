@@ -31,13 +31,16 @@ class Chat(models.Model):
     room = models.ForeignKey('ChatRoom', on_delete=models.CASCADE)
 
 class ChatRoom(models.Model):
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255)
+    timestamp = models.DateTimeField(auto_now=True)
     description = models.CharField(max_length=255, null=True)
     state = models.BooleanField(default=True)
     image = models.ImageField(default='default.jpg',upload_to=image_directory_path, storage=chatroom_storage)
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 class CustomUser(AbstractUser):
     avatar = models.ImageField(default='default.jpg', upload_to=image_directory_path, storage=avatar_storage)
     bio = models.CharField(max_length=255, blank=False)
-    discord = models.CharField(max_length=50, blank=False, null=True)
+    discord = models.CharField(max_length=50, blank=False, null=True, unique=True)
+    room = models.IntegerField(blank=False, null=True)

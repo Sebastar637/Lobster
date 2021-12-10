@@ -3,15 +3,8 @@
 {% block title %}{{room_name}}{% endblock title %}
 
 {% block content %}
-    
-    <style>
-        #chat-text{
-            height: 400px; 
-            overflow: scroll;
-        }
-    </style>
 
-    <h1>{{ room.name }}</h1>
+    <h1><p style="font-family: 'Permanent Marker', cursive;">{{ room.name }}</h1>
     
     
     <div class="alert alert-primary" role="alert">
@@ -28,24 +21,47 @@
         {% endif %}
     </div>
     
-    
-    <div id="chat-text">
-        {% for chat in chats.all %}
-        <li class="list-group-item"><b>
-            {{ chat.timestamp|date:"H:i" }}
-            <img width="25px" height="25px"  class="rounded-circle" src="{{ chat.user.avatar.url }}"> 
-            <a target="__blank" href="{% url 'profile' profile_id=chat.user.id %}" class="text-decoration-none text-dark"> {{ chat.user.username }}</a>
-            :</b> {{ chat.content }}</li>
-        {% endfor %}
-    </div>
-    {% if user.is_authenticated %}
-    <label for="">Mensaje:</label>
-    <textarea class="form-control" type="text" size="80" id="input"></textarea><br>
-    <input style="width:100px" class="form-control btn btn-primary" type="button" value="Enviar" id="submit">
+    <div class="row">
+        <div class="col-md-9">
+            <div id="chat-text">
+                {% for chat in chats.all %}
+                <li class="list-group-item"><span class="username">
+                    {{ chat.timestamp|date:"m/d | H:i" }}
+                    <img width="25px" height="25px"  class="rounded-circle" src="{{ chat.user.avatar.url }}"> 
+                    <a target="__blank" href="{% url 'profile' profile_id=chat.user.id %}" class="text-decoration-none text-dark"> {{ chat.user.username }}</a>
+                    :</span> {{ chat.content }}</li>
+                {% endfor %}
+            </div>
 
-    <button class="from-control btn btn-warning" onclick="scrollToBottom()">Ver ultimo mensaje</button>
+                    
+            {% if user.is_authenticated %}
+            <label for="">Mensaje:</label>
+            <textarea class="form-control" type="text" size="80" id="input"></textarea><br>
+            <input style="width:100px" class="form-control btn btn-primary" type="button" value="Enviar" id="submit">
+
+            <button class="from-control btn btn-warning" onclick="scrollToBottom()">Ver ultimo mensaje</button>
+            
+            {% endif %}
+        </div>
+        <div class="col-md-3">
+            {% if connected_users %}
+
+            <h4>Usuarios conectados</h2>
+            <ul class="list-group">
+                {% for user in connected_users %}
+                <li class="list-group-item">
+                    <img width="25px" height="25px"  class="rounded-circle" src="{{ user.avatar.url }}"> 
+                    <a target="__blank" href="{% url 'profile' profile_id=user.id %}" class="text-decoration-none text-dark">{{ user.username }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <h4>No hay usuarios conectados</h2>
+
+            {% endif %}
+
+        </div>
+    </div>
     
-    {% endif %}
 
     {{ room_id|json_script:"room_id" }}
 
@@ -88,7 +104,10 @@
             const data = JSON.parse(e.data); //Se recupera informacion enviada por el socket
             
             var time = new Date();
+
             formatedTime = 
+                (time.getMonth() + 1)   + "/" + 
+                (time.getDate()) + " | " + 
                 ("0" + time.getHours()).slice(-2)   + ":" + 
                 ("0" + time.getMinutes()).slice(-2)
             

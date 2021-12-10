@@ -9,38 +9,24 @@
 {% if user.is_authenticated %}
 
 
-<h1 class="text-center m-5">Bienvenido {{ user.username }}</h1>
+<h1 class="text-center m-5 title-user animation-title">Bienvenido {{ user.username }}</h1>
 
 {% endif %}
 
-
-<style>
-    .card-body {
-        border: 1px solid rgb(121, 121, 121);
-        border-radius:5px;
-    }
-    .author-panel{
-        background: #f2f2f2;
-        padding: 30px;
-        border-radius: 10px;
-    }
-</style>
-
-
-<div class="row">
+<div class="row post-margin">
     {% if user.is_authenticated %}
-            <div class="col-md-3 author-panel gx-5">
+            <div class="col-md-3 author-panel gx-5 perfil-user">
                 <img class="avatar rounded card-img-top" src="{{user.avatar.url}}" alt="avatar">
 
 
-                <h3>{{user.username}}</h3>
+                <h3><p style="font-family: 'Merriweather', serif;">{{user.username}}</p></h3>
                 <div> 
 
-                    <p><i class="fas fa-user"></i> Sobre Mí: {{user.bio}}</p>
+                    <p style="font-family: 'Merriweather', serif;"><i class="fas fa-user"></i> Sobre Mí: {{user.bio}}</p>
                     {% if user.discord %}
-                    <p><i class="fab fa-discord"></i> Discord: {{user.discord}}</p>
+                    <p style="font-family: 'Merriweather', serif;"><i class="fab fa-discord"></i> Discord: {{user.discord}}</p>
                     {% endif %}
-                    <a href="{% url 'createroom' %}" class="btn btn-success btn-lg btn-block create-post"><i class="fas fa-plus-square"></i> Crear Post</a>
+                    <p style="font-family: 'Merriweather', serif;"><a href="{% url 'createroom' %}" class="btn btn-success btn-lg btn-block create-post"><i class="fas fa-plus-square"></i> Crear Post</a></p>
                 </div>
 
             </div>
@@ -53,17 +39,19 @@
         <div class="row g-2 g-5">
             {% for room in rooms %}
             <div class="col-md-3">
-                <div class="card-body">
-                <h5 class="card-title text-center">{{room.name}}</h5>
-                <img src="{{ room.image.url }}" class="card-img-top">
+                <div class="card-body publication-title">
+                    <h5 class="card-title text-center"><p style="font-family: 'Merriweather', serif;">{{room.name}}</h5>
+                    <img src="{{ room.image.url }}" class="card-img-top">
 
-                <div class="preview">
+                    <div class="preview">
 
-                    {{room.description|truncatechars:60|truncatewords:20}}
+                        <p style="font-family: 'Merriweather', serif;">{{room.description|truncatechars:60|truncatewords:20}}
+                            <p><i class="fas fa-clock"></i> Creado el <b>{{ room.timestamp|date:"d/H/y" }}</b> a las <b>{{ room.timestamp|date:"H:i" }}</b></p>
+                        <p><i class="fas fa-user"></i> Por <img width="25px" height="25px" class="rounded-circle" src="{{ room.user.avatar.url }}"> {{ room.user.username }}</p>
+                    </div>
+                    <p style="font-family: 'Merriweather', serif;"><a href="{% url 'room' room_id=room.id %}" class="btn btn-primary">Ver más</a>
+                    </div>
                 </div>
-                <a href="{% url 'room' room_id=room.id %}" class="btn btn-primary">Ver más</a>
-                </div>
-            </div>
 
             {% endfor %}
         </div>
@@ -71,7 +59,7 @@
         <div class="subforum-title mt-3">
 
             <div class="alert alert-secondary" role="alert">
-                Aun no hay posts publicados
+                Aún no hay posts publicados
             </div>
 
         </div>

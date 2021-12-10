@@ -5,7 +5,6 @@ from allauth.account.utils import user_email, user_field, user_username
 class MyAccountAdapter(DefaultAccountAdapter):
     def save_user(self, request, user, form, commit=True):
   
-
         data = form.cleaned_data
 
         email = data.get("email")
