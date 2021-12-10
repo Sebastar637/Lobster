@@ -13,6 +13,23 @@
 
 {% endif %}
 
+<<<<<<< HEAD
+=======
+
+<style>
+    .card-body {
+        border: 2px solid rgb(0, 0, 0);
+        border-radius:5px;
+    }
+    .author-panel{
+        background: #f2f2f2;
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>
+
+
+>>>>>>> 89bbc3be788c537ed3e547884cdc59264dcc8007
 <div class="row post-margin">
     {% if user.is_authenticated %}
             <div class="col-md-3 author-panel gx-5 perfil-user">
@@ -40,6 +57,7 @@
             {% for room in rooms %}
             <div class="col-md-3">
                 <div class="card-body publication-title">
+<<<<<<< HEAD
                     <h5 class="card-title text-center"><p style="font-family: 'Merriweather', serif;">{{room.name}}</h5>
                     <img src="{{ room.image.url }}" class="card-img-top">
 
@@ -51,6 +69,16 @@
                     </div>
                     <p style="font-family: 'Merriweather', serif;"><a href="{% url 'room' room_id=room.id %}" class="btn btn-primary">Ver más</a>
                     </div>
+=======
+                <h5 class="card-title text-center"><p style="font-family: 'Merriweather', serif;">{{room.name}}</h5>
+                <img src="{{ room.image.url }}" class="card-img-top">
+
+                <div class="preview">
+
+                    <p style="font-family: 'Merriweather', serif;">{{room.description|truncatechars:60|truncatewords:20}}
+                </div>
+                <p style="font-family: 'Merriweather', serif;"><a href="{% url 'room' room_id=room.id %}" class="btn btn-primary">Ver más</a>
+>>>>>>> 89bbc3be788c537ed3e547884cdc59264dcc8007
                 </div>
 
             {% endfor %}

@@ -7,6 +7,7 @@ html{
     height: 100%;
 }
 
+<<<<<<< HEAD
 #chat-text {
     background-color: #ffffff82;
     height: 400px; 
@@ -63,6 +64,11 @@ html{
     border: white;
     color: white;
 }
+=======
+.option-margin{
+    margin-right: 10px;
+}
+>>>>>>> 89bbc3be788c537ed3e547884cdc59264dcc8007
 .title{
     margin-top: 15px;
     font-family: 'Black Ops One', cursive;
