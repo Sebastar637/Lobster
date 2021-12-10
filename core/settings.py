@@ -171,3 +171,4 @@ AUTH_USER_MODEL = 'chat.CustomUser'
 
 # https://stackoverflow.com/questions/66735981/django-allauth-custom-signup-form-doesnt-save-all-of-the-fields
 ACCOUNT_ADAPTER = 'chat.adapter.MyAccountAdapter'
+ 
