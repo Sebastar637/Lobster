@@ -40,11 +40,20 @@ html{
     font-weight: bold;
 }
 
+.preview p{
+    word-break: break-all;
+}
+
 .card-body {
     border: 2px solid rgb(0, 0, 0);
     border-radius:5px;
     background-color: #ffffff75;
+    width: 100%;
 }
+.card-body p{
+    word-break: break-all;
+}
+
 .author-panel{
     background: #f2f2f2;
     padding: 20px;
@@ -81,8 +90,9 @@ html{
     width: 100%;
     position: absolute;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     background-position: center;
+    background-color: #accfed;
 }
 .title-user{ 
     margin-top: 15px;
@@ -103,7 +113,7 @@ html{
 .perfil-user{
     display: inline-block;
     margin: 5 5.5rem;
-
+    height: 500px;
     animation: slideInUp; 
     animation-duration: 2s;
 }
