@@ -22,7 +22,7 @@
                     <img src="{{ room.image.url }}" class="card-img-top">
 
                     <div class="preview">
-                        <p style="font-family: 'Merriweather', serif;">{{room.description|truncatechars:60|truncatewords:20}}
+                        <p class="text-center" style="font-family: 'Merriweather', serif;">{{room.description|truncatechars:60|truncatewords:20}}
                             <p><i class="fas fa-clock"></i> Creado el <b>{{ room.timestamp|date:"d/H/y" }}</b> a las <b>{{ room.timestamp|date:"H:i" }}</b></p>
                             <p><i class="fas fa-user"></i> Por <img width="25px" height="25px" class="rounded-circle" src="{{ room.user.avatar.url }}"> {{ room.user.username }}</p>
                     </div>
